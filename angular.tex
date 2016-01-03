@@ -58,11 +58,44 @@ J^2 \ket{\psi} = \lambda \ket{\psi}, J_z \ket{\psi} = \mu \ket{\psi}.
 
 \section{升降算符}
 
-\begin{frame}{引入升降算符}
+\begin{frame}{升降算符}
 定义升降算符
 \begin{equation}
 J_{\pm} \equiv J_x \pm i J_y
 \end{equation}
+升降算符有下列性质:
+\begin{itemize}
+\item ${J_\pm}^\dag = J_\mp$
+\item $\comm{J_+}{J_-} = 2 \hbar J_z$
+\item $\comm{J_\pm}{J^2} = 0$
+\item $\comm{J_\pm}{J_z} = \mp \hbar J_\pm$
+\item $J_\pm J_\mp = J^2 - J_z^2 \pm \hbar J_z$
+\end{itemize}
 \end{frame}
+
+\begin{frame}{升降算符}
+如果$\ket{\psi}$是$J^2$和$J_z$的共同本征态, 那么$L_\pm \ket{\psi}$也是它们的本征态.
+\begin{gather}
+J^2(J_\pm \ket{\psi}) = J_\pm (J^2 \ket{\psi}) = J_\pm  (\lambda \ket{\psi}) = \lambda (J_\pm \ket{\psi}) \\
+\begin{split}
+J_z (L_\pm \ket{\psi}) &= (J_z J_\pm - J_\pm J_z) \ket{\psi} + J_\pm J_z \ket{\psi} \\
+  &= \pm \hbar J_\pm \ket{\psi} + J_\pm (\mu \ket{\psi}) \\
+  &= (\mu \pm \hbar) (J_\pm \ket{\psi})
+\end{split}
+\end{gather}
+由上式可知, $J^2$的本征值不变, $J_z$的本征值加(减)一个$\hbar$
+\end{frame}
+
+\begin{frame}{升降算符}
+对于给定的$\lambda$,不断的施加一个升算符, $J_z$的本征值将不断增加. 但是增加到一程度就会到顶,我们令这个态为$\ket{\psi_t}$, 有
+\begin{equation}
+J_+ \ket{\psi_t} = 0
+\end{equation}
+设此时$J_z$的本征值为$\hbar j$:
+\begin{equation}
+J_z \ket{\psi_t} = \hbar j \ket{\psi_t}, \quad J^2 \ket{\psi_t} = \lambda \ket{\psi_t}
+\end{equation}
+\end{frame}
+
 
 \end{document}

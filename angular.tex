@@ -1,0 +1,68 @@
+\documentclass{beamer}
+\usepackage[UTF8,noindent]{ctexcap}
+\usetheme{Madrid}
+\usefonttheme[onlymath]{serif}
+
+\usepackage{bm}
+\usepackage{physics}
+
+\title{角动量算符对易关系}
+\author{艾鑫}
+\institute[三峡大学]{三峡大学\hspace{1em}理学院}
+
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{角动量定义}
+
+\begin{frame}{经典力学中的角动量}
+在经典力学中, 角动量的定义为
+\begin{equation}
+\bm{L} = \bm{r} \times \bm{p}
+\end{equation}
+展开为
+\begin{equation}
+L_x = yp_z - zp_y, \quad L_y = zp_x - xp_z, \quad L_z = xp_y - yp_x
+\end{equation}
+
+在量子力学中只需将动量换成动量算符, 即为轨道角动量的定义
+\end{frame}
+
+\begin{frame}{角动量的一般定义}
+角动量的一般定义是通过对易关系定义的
+\begin{equation}
+\bm{J} \times \bm{J} = i \hbar \bm{J}
+\end{equation}
+展开为
+\begin{equation}
+[J_x, J_y] = i\hbar J_z , \quad [J_y, J_z] = i \hbar J_x , \quad [J_z, J_x] = i\hbar J_y
+\end{equation}
+\end{frame}
+
+\begin{frame}{角动量平方算符}
+由于$J_x, J_y, J_z$相互之间不对易, 因此没有共同的本征态. 而角动量平方算符
+\begin{equation}
+J^2 = J_x^2 + J_y^2 + J_z^2
+\end{equation}
+却与$J_x, J_y, J_z$都对易,即
+\begin{equation}
+[J^2,J_x] = 0, \quad [J^2, J_y] = 0, \quad [J^2, J_z] = 0
+\end{equation}
+我们可以找到$J^2$和$J_z$的共同的本征态$\ket{\psi}$:
+\begin{equation}
+J^2 \ket{\psi} = \lambda \ket{\psi}, J_z \ket{\psi} = \mu \ket{\psi}.
+\end{equation}
+\end{frame}
+
+\section{升降算符}
+
+\begin{frame}{引入升降算符}
+定义升降算符
+\begin{equation}
+J_{\pm} \equiv J_x \pm i J_y
+\end{equation}
+\end{frame}
+
+\end{document}

@@ -7,7 +7,7 @@
 \usepackage{bm}
 \usepackage{physics}
 
-\title{角动量算符对易关系}
+\title{利用对易关系求角动量算符的矩阵元}
 \author{艾鑫}
 \institute[三峡大学]{三峡大学\hspace{1em}理学院}
 
@@ -17,6 +17,13 @@
 \maketitle
 
 \section{角动量定义}
+
+\begin{frame}{目的与方法}
+\begin{description}
+  \item[目的] 求$J_x,J_y,J_z$和$J^2$算符在$J^2,J_z$共同表象的矩阵元
+  \item[方法] 通过角动量算符的对易关系来讨论其本征值问题
+\end{description}
+\end{frame}
 
 \begin{frame}{经典力学中的角动量}
 在经典力学中, 角动量的定义为
@@ -97,6 +104,152 @@ J_+ \ket{\psi_t} = 0
 J_z \ket{\psi_t} = \hbar j \ket{\psi_t}, \quad J^2 \ket{\psi_t} = \lambda \ket{\psi_t}
 \end{equation}
 
+\end{frame}
+
+\begin{frame}{升降算符}
+现在有
+\begin{equation}
+\begin{split}\label{JpmJmp}
+J_\pm J_\mp &= (J_x \pm i J_y)(J_x \mp i J_y) = J_x^2 + J_y^2 \mp i (J_x J_y - J_y J_x) \\
+ &= J^2 - J_z^2 \mp i (i\hbar J_z)
+\end{split}
+\end{equation}
+移项后有
+\begin{equation}
+J^2 = J_\pm J_\mp + J_z^2 \mp \hbar J_z
+\end{equation}
+因此有
+\begin{equation}
+\begin{split}
+J^2 \ket{\psi_t} &= (J_- J_+ + J_z^2 + \hbar J_z) \ket{\psi_t} \\
+ &= (0 + \hbar^2 j^2 + \hbar^2 j) \ket{\psi_t} \\
+ &= \hbar^2 j(j + 1) \ket{\psi_t}
+\end{split}
+\end{equation}
+\end{frame}
+
+\begin{frame}{升降算符}
+由本征值方程$J^2 \ket{\psi_t} = \lambda \ket{\psi_t}$得
+\begin{equation}
+\lambda = \hbar^2 j(j + 1)
+\end{equation}
+这告诉了我们$J^2$的特征值$\lambda$与$J_z$的最大特征值$j\hbar$的关系
+\end{frame}
+
+\begin{frame}{降算符}
+同样的道理,对于降算符也有对应的最低的态$\ket{\psi_b}$有
+\begin{equation}
+J_- \ket{\psi_b} = 0
+\end{equation}
+类似地,我们令$J_z$对应的本征值为$\hbar \bar{j}$:
+\begin{equation}
+J_z \ket{\psi_b} = \hbar \bar{j} \ket{\psi_b}, \quad J^2 \ket{\psi_b} = \lambda \ket{\psi_b}
+\end{equation}
+同样利用\eqref{JpmJmp},我们有
+\begin{equation}
+\begin{split}
+J^2 \ket{\psi_b} &= (J_+ J_- + J_z^2 - \hbar J_z) \ket{\psi_b} \\
+ &= (0 + \hbar^2 \bar{j}^2 - \hbar^2 \bar{j}) \ket{\psi_b} \\
+ &= \hbar^2 \bar{j}(\bar{j} - 1) \ket{\psi_b}
+\end{split}
+\end{equation}
+\end{frame}
+
+\begin{frame}
+比较$\lambda = \hbar^2 j (j + 1)$和$\lambda = \hbar^2 \bar{j}(\bar{j} - 1)$
+有
+\begin{equation}
+j(j+1) = \hbar{j} (\bar{j} + 1)
+\end{equation}
+要么$\bar{j} = j + 1$, 要么$\bar{j} = -j$. 前面一种情况是不合理的, 故
+\begin{equation}
+\bar{j} = -j
+\end{equation}
+\end{frame}
+
+\begin{frame}
+设$J_z$的特征值为$m\hbar$, 其中
+\begin{equation}
+m = -j, -j+1, \cdots, j-1, j
+\end{equation}
+因此, $j = -j + N$, $N$为某个整数, 所以$j = N/2$,即$j$要么是整数,要么是半整
+数:
+\begin{equation}
+j = 0, 1/2, 1, 3/2, \cdots
+\end{equation}
+因此我们可以用$j,m$来刻画本征态:
+\begin{equation}
+J^2 \ket{j,m} = \hbar^2 j (j + 1) \ket{j,m}, \quad J_z \ket{j,m} = \hbar m \ket{j,m}
+\end{equation}
+\end{frame}
+
+\begin{frame}{矩阵元}
+以$\ket{j,m}$为基矢的表象为$J^2$和$J_z$的共同表象. 在此表象中, $J^2$和$J_z$
+是对角矩阵, 矩阵元分别为
+\begin{gather}
+\langle j', m' | J^2 | j,m \rangle = j(j+1)\hbar^2 \delta_{j,j'} \delta_{m,m'} \\
+\langle j', m' | J_z | j,m \rangle = m \hbar \delta_{j,j'} \delta_{m,m'}
+\end{gather}
+
+下面我们来求$J_\pm$的矩阵元. 设
+\begin{equation}
+J_\pm \ket{j,m} = C_\pm (j,m) \hbar \ket{j,m \pm 1}
+\end{equation}
+上式中$C_\pm (j,m)$为待定系数.下面来求$C_\pm (j,m)$. 取上式的厄米共轭,有
+\begin{gather}
+\bra{j,m}{J_\pm}^\dag = \bra{j,m} J_\mp = \bra{j,m \pm 1} {C_\pm}^* \hbar \\
+\langle j,m | J_\mp J_\pm | j,m \rangle = {C_\pm}^*(j,m) C_\pm (j,m) \hbar^2 \braket{j,m\pm 1}{j,m\pm 1}
+\end{gather}
+\end{frame}
+
+\begin{frame}{矩阵元}
+利用归一化条件$\braket{j,m\pm 1}{j,m\pm 1} = 1$以及$J_\mp J_\pm = J^2 -
+J_z^2 \mp \hbar J_z$有
+\begin{gather}
+\begin{split}
+|C_\pm (j,m)|^2 \hbar^2 &= \langle j,m | J^2 - J_z^2 \mp \hbar J_z | j,m \rangle \\
+    &= [j(j+1) - m^2 \mp m] \hbar^2 \braket{j,m}{j,m} \\
+    &= (j\mp m)(j\pm m + 1) \hbar^2
+\end{split}\\
+C_\pm (j,m) = \sqrt{(j\mp m)(j\pm m + 1)}
+\end{gather}
+故
+\begin{equation}
+J_\pm \ket{j,m} = \sqrt{(j\mp m)(j\pm m + 1)} \hbar \ket{j,m \pm 1}
+\end{equation}
+矩阵元为
+\begin{gather}
+\langle j', m' | J_+ | j,m \rangle = \sqrt{(j-m)(j+m+1)} \hbar \delta_{j,j'} \delta_{m,m'} \\
+\langle j', m' | J_- | j,m \rangle = \sqrt{(j+m)(j-m+1)} \hbar \delta_{j,j'} \delta_{m,m'}
+\end{gather}
+\end{frame}
+
+\begin{frame}{$J_x$和$J_y$的矩阵元}
+\begin{gather}
+\begin{split}
+J_x \ket{j,m} &= \frac{1}{2}(J_+ + J_-) \ket{j,m} \\
+    &= \frac{1}{2} \sqrt{(j-m)(j+m+1)}\hbar \ket{j,m+1} \\
+    & \quad +\frac{1}{2} \sqrt{(j+m)(j-m+1)}\hbar \ket{j,m-1}
+\end{split} \\
+\begin{split}
+J_y \ket{j,m} &= \frac{1}{2i}(J_+ - J_-) \ket{j,m} \\
+    &= \frac{1}{2i} \sqrt{(j-m)(j+m+1)}\hbar \ket{j,m+1} \\
+    & \quad -\frac{1}{2i} \sqrt{(j+m)(j-m+1)}\hbar \ket{j,m-1}
+\end{split}
+\end{gather}
+\end{frame}
+
+\begin{frame}{$J_x$和$J_y$的矩阵元}
+\begin{gather}
+\begin{split}
+\bra{j',m'} J_x \ket{j,m} &= \frac{1}{2} \sqrt{(j-m)(j+m+1)}\hbar \delta_{j,j'} \delta_{m+1,m'} \\
+    & \quad +\frac{1}{2} \sqrt{(j+m)(j-m+1)}\hbar \delta_{j,j'} \delta_{m-1,m'}
+\end{split} \\
+\begin{split}
+\bra{j',m'} J_y \ket{j,m} &= \frac{1}{2i} \sqrt{(j-m)(j+m+1)}\hbar \delta_{j,j'} \delta_{m+1,m'} \\
+    & \quad -\frac{1}{2i} \sqrt{(j+m)(j-m+1)}\hbar \delta_{j,j'} \delta_{m-1,m'}
+\end{split}
+\end{gather}
 \end{frame}
 
 
